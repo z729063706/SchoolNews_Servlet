@@ -21,7 +21,7 @@ public class c3p0Util {
         } catch (PropertyVetoException e) {
             e.printStackTrace();
         }
-        ds.setJdbcUrl("jdbc:mysql://127.0.0.1:3306/JavaWeb?characterEncoding=utf-8");
+        ds.setJdbcUrl("jdbc:mysql://8.141.64.60:3306/javaweb?characterEncoding=utf-8");
         ds.setUser("root");
         ds.setPassword("zzzyyyhhh");
         ds.setInitialPoolSize(10);
