@@ -103,4 +103,15 @@ public class userDao {
         }
         c3p0Util.closeAll(conn, prst);
     }
+    public static Boolean addUser(String uname,String name,String upass){
+        String sql = " INSERT INTO USER(UNAME,NAME,UPASS,UTYPE) VALUES (?,?,?,1) ";
+        QueryRunner qr = new QueryRunner(c3p0Util.dataSource);
+        try {
+            qr.execute(sql, uname, name, upass);
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
