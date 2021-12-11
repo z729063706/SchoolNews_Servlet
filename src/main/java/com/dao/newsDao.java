@@ -38,9 +38,12 @@ public class newsDao {
         BigInteger newsid = null;
         try {
             qr.update(sql1,news.getTitle(),news.getPic(),news.getContent(),news.getType(),news.getAuther(),news.getShortContent());
-            newsid= (BigInteger) qr.query(sql2,new ScalarHandler(1));
+            newsid= (BigInteger) qr.query(sql2, new ScalarHandler(1));
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        if (newsid == null){
+            return -1;
         }
         return newsid.intValue();
     }
