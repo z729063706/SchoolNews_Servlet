@@ -23,4 +23,37 @@ public class mianpicDao {
         }
         return re;
     }
+    public static Boolean delMainpic(Integer id){
+        String sql = " DELETE FROM MAINPIC WHERE ID=? ";
+        QueryRunner qr = new QueryRunner(c3p0Util.dataSource);
+        try {
+            qr.execute(sql, id);
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    public static Boolean switchMainpic(Integer id){
+        String sql = " UPDATE MAINPIC SET VAILD = NOT vaild WHERE id=? ";
+        QueryRunner qr = new QueryRunner(c3p0Util.dataSource);
+        try {
+            qr.execute(sql, id);
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    public static Boolean addMainpic(String url, String content){
+        String sql = " INSERT INTO MAINPIC(URL,CONTENT) VALUES (?,?) ";
+        QueryRunner qr = new QueryRunner(c3p0Util.dataSource);
+        try {
+            qr.execute(sql, url, content);
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
