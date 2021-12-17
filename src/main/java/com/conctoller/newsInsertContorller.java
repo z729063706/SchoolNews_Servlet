@@ -39,6 +39,7 @@ public class newsInsertContorller extends HttpServlet {
             return;
         }
         Integer newsid = newsDao.insertNews(news);
+        logDao.log(uname, "add news "+newsid);
         out.print(newsid); 
         out.flush();
         return;

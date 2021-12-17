@@ -55,7 +55,7 @@ public class userDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        logDao.log(user.getUname(), "Login");
+        //logDao.log(user.getUname(), "Login");
         return user;
     }
     public static List<User> userList(Integer uid){

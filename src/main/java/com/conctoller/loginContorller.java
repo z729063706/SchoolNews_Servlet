@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.alibaba.fastjson.JSONObject;
 import com.bean.User;
+import com.dao.logDao;
 import com.dao.userDao;
 
 @WebServlet("/api/login")
@@ -25,6 +26,7 @@ public class loginContorller extends HttpServlet {
         if (uid > 0){
             User user = userDao.getDetail(uid);
             resp.setCharacterEncoding("UTF-8");
+            logDao.log(user.getUname(), "Login");
             out.write(JSONObject.toJSONString(user).getBytes("UTF-8"));
             out.flush();
         }
